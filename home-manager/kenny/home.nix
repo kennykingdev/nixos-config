@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./cli.nix
-    ./gui.nix
+    ./cli
+    ./gui
   ];
 
   home.username = "kenny";
