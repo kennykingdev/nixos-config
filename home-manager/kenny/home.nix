@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../modules/base/base.nix
+    ./cli.nix
     ../modules/apps/gui/gui-apps.nix
   ];
 
@@ -14,7 +14,6 @@
 
   # Packages with no explicit configuration needed (or it's just not in home-manager options)
   home.packages = with pkgs; [
-    tree
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
