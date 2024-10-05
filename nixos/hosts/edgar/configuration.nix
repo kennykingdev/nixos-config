@@ -7,6 +7,8 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../users/kenny.nix
+      ../../users/karen.nix
     ];
 
   # Boot Options
@@ -77,20 +79,6 @@ in
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
-  };
-
-  users.users.kenny = {
-    isNormalUser = true;
-    description = "Kenny King";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBmYYPePwrjvsoEQFBOzzIod+1RzvokhZXMh+jtdt+md kenny-laptop"
-    ];
   };
 
   # zsh

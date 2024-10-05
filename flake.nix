@@ -22,7 +22,7 @@
         edgar = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-	    ./hosts/edgar/configuration.nix
+	    ./nixos/hosts/edgar/configuration.nix
 	  ];
         };
       };
