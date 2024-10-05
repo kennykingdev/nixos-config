@@ -1,10 +1,6 @@
-{ lib, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
-  imports = [
-    ./wezterm/wezterm.nix
-  ];
-
   home.packages = with pkgs; [
     bitwarden
     discord
@@ -19,6 +15,12 @@
   ];
 
   programs = {
+    wezterm = {
+      enable = true;
+      package = inputs.wezterm.packages.${pkgs.system}.default;
+      extraConfig = builtins.readFile ./dotfiles/wezterm/wezterm.lua;
+    };
+
     firefox = {
       enable = true;
     };
@@ -26,10 +28,6 @@
     chromium = {
       enable = true;
     };
-
-#    thunderbird = {
-#      enable = true;
-#    };
-
   };
 }
+

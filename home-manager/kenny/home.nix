@@ -3,7 +3,7 @@
 {
   imports = [
     ./cli.nix
-    ../modules/apps/gui/gui-apps.nix
+    ./gui.nix
   ];
 
   home.username = "kenny";
