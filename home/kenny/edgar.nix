@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
-    ./cli
-    ./gui
+    ./common/core
+    ./common/optional
   ];
 
   home.username = "kenny";
@@ -60,7 +60,6 @@
   #  /etc/profiles/per-user/kenny/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.

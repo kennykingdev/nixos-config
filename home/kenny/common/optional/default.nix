@@ -1,6 +1,10 @@
 { inputs, pkgs, ... }:
 
 {
+  imports = [
+    ./nixvim
+  ];
+
   home.packages = with pkgs; [
     bitwarden
     discord
@@ -18,7 +22,7 @@
     wezterm = {
       enable = true;
       package = inputs.wezterm.packages.${pkgs.system}.default;
-      extraConfig = builtins.readFile ./dotfiles/wezterm/wezterm.lua;
+      extraConfig = builtins.readFile ./files/wezterm/wezterm.lua;
     };
 
     firefox = {

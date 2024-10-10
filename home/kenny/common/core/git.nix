@@ -1,6 +1,8 @@
-{ ... }:
-
 {
+  home.shellAliases = {
+    lg = "lazygit";
+  };
+
   programs = {
     git = {
       enable = true;

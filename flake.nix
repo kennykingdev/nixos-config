@@ -1,5 +1,5 @@
 {
-  description = "My Main Flake";
+  description = "Kenny's Main Flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -8,30 +8,32 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     wezterm.url = "github:wez/wezterm?dir=nix";
+    nixvim = {
+        url = "github:nix-community/nixvim";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, home-manager, nixvim, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      nixosSystem = nixpkgs.lib.nixosSystem;
-      homeManagerConfiguration = home-manager.lib.homeManagerConfiguration;
     in
     {
       nixosConfigurations = {
         edgar = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-	    ./nixos/hosts/edgar/configuration.nix
-	  ];
+            ./hosts/edgar/configuration.nix
+          ];
         };
       };
 
       homeConfigurations = {
         kenny = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home-manager/kenny/home.nix ];
-          extraSpecialArgs = { inherit inputs; };
+          modules = [ ./home/kenny/edgar.nix ];
+          extraSpecialArgs = { inherit inputs; inherit nixvim; };
         };
       };
     };

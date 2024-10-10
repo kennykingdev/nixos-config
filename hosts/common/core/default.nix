@@ -1,19 +1,17 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 let
   locale = lib.mkDefault "en_US.UTF-8";
 in
 {
   imports = [
-    ./modules/openssh.nix
-    ../users/kenny.nix
+    ./openssh.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.networkmanager.enable = true;
-  #networking.firewall.allowedXXXPorts will be set by the module enabling a service
 
   # Set your time zone.
   time.timeZone = lib.mkDefault "America/Los_Angeles";
@@ -41,23 +39,17 @@ in
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     enableLsColors = true;
-    shellAliases = {
-      vim = "nvim";
-    };
-    ohMyZsh = {
-      enable = true;
-      theme = "robbyrussell";
-      plugins = [
-        "colored-man-pages"
-	"colorize" # syntax highlighting for file contents
-	"sudo" # press <Esc><ESC> to run last command with sudo
-      ];
-    };
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
   };
 
   environment.systemPackages = with pkgs; [
     git
-    neovim
     neofetch
     wget
     curl
@@ -65,10 +57,14 @@ in
 
   # System-wide environment Variables
   environment.variables = {
-    EDITOR = "nvim";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    trusted-users = [ "root" "@wheel" ];
+    builders-use-substitutes = true;
+    warn-dirty = false; # whether to warn about dirty git tree
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
