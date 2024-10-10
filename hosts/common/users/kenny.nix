@@ -1,7 +1,8 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   users.users.kenny = {
+    initialHashedPassword = "$y$j9T$axbCyy8FKMjJ3f0uVJOmL0$Wu0VWrOkx1iloUCaoECvYURCxP8pOhSfq99aj9SzAWC";
     isNormalUser = true;
     description = "Kenny King";
     extraGroups = [ "networkmanager" "wheel" ];
