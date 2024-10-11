@@ -6,6 +6,7 @@
       dotDir = ".config/zsh";
       syntaxHighlighting.enable = true;
       autosuggestion.enable = true;
+      autocd = true;
       history = {
         append = true;
         ignoreAllDups = true;

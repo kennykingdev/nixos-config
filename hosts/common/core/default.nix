@@ -48,6 +48,10 @@ in
     vimAlias = true;
   };
 
+  programs.ssh = {
+    startAgent = true;
+  };
+
   environment.systemPackages = with pkgs; [
     git
     neofetch
