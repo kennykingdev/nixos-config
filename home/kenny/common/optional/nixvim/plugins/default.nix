@@ -4,6 +4,7 @@
     ./lsp.nix
     ./completion.nix
     ./treesitter.nix
+    # ./conform.nix
   ];
 
   programs.nixvim = {
@@ -25,16 +26,7 @@
     ];
 
     plugins = {
-      conform-nvim = {
-        enable = true;
-        settings = {
-          default_format_opts = {
-            # fallback to LSP formatting when no others are available
-            lsp_format = "fallback"; 
-          };
-        };
-      };
-
+      # ui - looks
       web-devicons = {
         enable = true;
         settings = {
@@ -43,32 +35,48 @@
         };
       };
 
+      # ui - util
+      # highlight various types of color codes with the color used
       nvim-colorizer = {
         enable = true;
         userDefaultOptions.names = false;
       };
 
+      # editor - layout
       # breadcrumbs for file location at top of screen
       # barbecue.enable = true;
 
+      # editor - layout
       # close buffer without closing the window
       bufdelete.enable = true;
 
+      # editor - util
       better-escape.enable = true;
 
+      # editor - util
       nvim-autopairs = {
         enable = true;
         settings = {};
       };
 
+      # ui - looks
       dressing = {
         enable = true;
         settings = {};
       };
 
+      # code - 
+      friendly-snippets.enable = true;
+      
+      # ui - util
+      # highlight other uses of the word under the cursor
+      illuminate.enable = true;
+
       gitsigns = {
         enable = true;
-        settings = {};
+        settings = {
+          signcolumn = true;
+        };
       };
 
       indent-blankline = {
