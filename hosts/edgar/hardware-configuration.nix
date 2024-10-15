@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-label/OS";
+    { device = "/dev/disk/by-label/ROOT";
       fsType = "ext4";
     };
 
@@ -25,12 +25,12 @@
     };
 
   fileSystems."/storage/movies" =
-    { device = "/dev/disk/by-label/movies";
+    { device = "/dev/disk/by-label/MOVIES";
       fsType = "ext4";
     };
 
   fileSystems."/storage/tv" =
-    { device = "/dev/disk/by-label/tv";
+    { device = "/dev/disk/by-label/TV";
       fsType = "ext4";
     };
 
