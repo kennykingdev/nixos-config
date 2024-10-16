@@ -35,9 +35,9 @@ local flexoki_custom = wezterm.color.get_builtin_schemes()["flexoki-dark"]
 flexoki_custom.background = "black"
 
 return {
---	font = wezterm.font("Hack", {
---		weight = "Regular",
---	}),
+	font = wezterm.font("MesloLGS NF", {
+		weight = "Regular",
+	}),
 	adjust_window_size_when_changing_font_size = false,
 	hide_tab_bar_if_only_one_tab = true,
 	scrollback_lines = 10000,
@@ -55,4 +55,7 @@ return {
 	},
 	color_scheme = "flexoki-custom",
 	window_background_opacity = 0.90,
+  -- bugfix.  using wezterm on nixos without front_end set, blocks of color
+  -- are rendered in place of characters
+  front_end = "WebGpu",
 }

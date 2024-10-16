@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, pkgs-stable, ... }:
 
 {
   imports = [
@@ -6,8 +6,8 @@
     # ./nixvim
   ];
 
-  home.packages = with pkgs; [
-    bitwarden
+  home.packages = 
+  ( with pkgs; [
     discord
     filelight
     obsidian
@@ -17,12 +17,15 @@
     slack
     ventoy
     zoom
-  ];
+  ])
+  ++
+  ( with pkgs-stable; [
+    bitwarden
+  ]);
 
   programs = {
     wezterm = {
       enable = true;
-      package = inputs.wezterm.packages.${pkgs.system}.default;
       extraConfig = builtins.readFile ./files/wezterm/wezterm.lua;
     };
 

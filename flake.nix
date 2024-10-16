@@ -3,11 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    wezterm.url = "github:wez/wezterm?dir=nix";
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +17,7 @@
   outputs = { 
     self,
     nixpkgs,
+    nixpkgs-stable,
     home-manager,
     nixvim,
     ...
@@ -33,6 +34,7 @@
 
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    pkgs-stable = nixpkgs-stable.legacyPackages.${system};
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     overlays = import ./overlays {inherit inputs outputs;};
@@ -51,7 +53,7 @@
       "kenny@edgar" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home/kenny/edgar.nix ];
-        extraSpecialArgs = { inherit inputs outputs nixvim; };
+        extraSpecialArgs = { inherit inputs outputs nixvim pkgs-stable; };
       };
     };
   };
