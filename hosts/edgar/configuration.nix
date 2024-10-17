@@ -15,4 +15,7 @@
   # OpenCL driver
   # Must use version 5 with RX560 (or any Polaris card)
   hardware.graphics.extraPackages = [ pkgs.rocmPackages_5.clr.icd ];
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 }
