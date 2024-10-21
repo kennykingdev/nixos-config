@@ -7,8 +7,16 @@
     description = "Karen King";
     extraGroups = [ "networkmanager" ];
     packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
+        thunderbird
+      ]
+      ++ (with kdePackages; [
+        kate
+        kblocks
+        kbounce
+        kbreakout
+        kshisen
+        kpat
+        kmahjongg
+      ]);
   };
 }
