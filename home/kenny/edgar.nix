@@ -9,6 +9,8 @@
   home.username = "kenny";
   home.homeDirectory = "/home/kenny";
 
+  news.display = "show";
+
   # Allow installation of packages with "unfree" licences
   nixpkgs.config.allowUnfreePredicate = (_: true);
 

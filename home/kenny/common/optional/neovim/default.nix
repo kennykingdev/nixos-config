@@ -76,6 +76,7 @@
       inccommand = "split"; # Preview substitutions live, as you type!
       swapfile = false; # disable the swap file
       undofile = true; # save and restore undo history
+      cmdheight = 0; # remove command line
     };
 
     autoGroups = {
