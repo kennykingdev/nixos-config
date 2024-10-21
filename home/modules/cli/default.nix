@@ -12,12 +12,9 @@
     "..." = "cd ../..";
     "...." = "cd ../../..";
     "....." = "cd ../../../..";
-    # "~" = "cd ~";
-    # "-" = "cd -";
     l = lib.mkDefault "ls -l";
     la = lib.mkDefault "ls -la";
     cl = "clear";
-    hme = "cd ~/config/nix/home/kenny; nvim edgar.nix";
     hms = "home-manager switch --flake ~/config/nix";
     nixsw = "sudo nixos-rebuild switch --flake ~/config/nix";
     grep = "rg";

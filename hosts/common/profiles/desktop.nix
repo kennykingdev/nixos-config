@@ -2,10 +2,11 @@
 
 {
   imports = [
-    ../core
-    ../optional/services/plasma.nix
-    ../optional/services/audio.nix
-    ../optional/services/printing.nix
+    ../core.nix
+    ../services/audio.nix
+    ../services/plasma.nix
+    ../services/printing.nix
+    ../services/openssh.nix
   ];
 
   # Install firefox.

@@ -17,6 +17,7 @@
     ventoy
     zoom
     bitwarden
+    meslo-lgs-nf
   ])
   ++
   ( with pkgs-stable; [
@@ -28,12 +29,17 @@
       extraConfig = builtins.readFile ./files/wezterm/wezterm.lua;
     };
 
-    firefox = {
-      enable = true;
-    };
+    firefox.enable = true;
+    chromium.enable = true;
+    command-not-found.enable = true;
 
-    chromium = {
+    thunderbird = {
       enable = true;
+      profiles = {
+        kenny = {
+          isDefault = true;
+        };
+      };
     };
   };
 }

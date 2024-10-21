@@ -5,7 +5,7 @@ let
 in
 {
   imports = [
-    ./openssh.nix
+    ./services/openssh.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -33,7 +33,10 @@ in
   };
 
   # zsh
-  environment.shells = with pkgs; [ bash zsh ];
+  environment.shells = with pkgs; [ 
+    bash 
+    zsh 
+  ];
   programs.zsh = {
     enable = true;
     autosuggestions.enable = true;

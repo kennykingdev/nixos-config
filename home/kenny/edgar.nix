@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./common/core
-    ./common/optional
+    ../modules/cli
+    ./common
   ];
 
   home.username = "kenny";
@@ -16,7 +16,6 @@
 
   # Packages with no explicit configuration needed (or it's just not in home-manager options)
   home.packages = with pkgs; [
-    meslo-lgs-nf
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
