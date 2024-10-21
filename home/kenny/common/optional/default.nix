@@ -3,7 +3,6 @@
 {
   imports = [
     ./neovim
-    # ./nixvim
   ];
 
   home.packages = 
@@ -17,10 +16,10 @@
     slack
     ventoy
     zoom
+    bitwarden
   ])
   ++
   ( with pkgs-stable; [
-    bitwarden
   ]);
 
   programs = {
