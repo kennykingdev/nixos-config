@@ -8,5 +8,5 @@
       ../common/users/kenny.nix
     ];
 
-  networking.hostName = "pete";
+  networking.hostName = "services-01";
 }
