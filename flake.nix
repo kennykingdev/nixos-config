@@ -47,12 +47,24 @@
         ];
         specialArgs = { inherit inputs outputs;};
       };
+      services-01 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/services-01/configuration.nix
+        ];
+        specialArgs = { inherit inputs outputs;};
+      };
     };
 
     homeConfigurations = {
       "kenny@edgar" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home/kenny/edgar.nix ];
+        extraSpecialArgs = { inherit inputs outputs nixvim pkgs-stable; };
+      };
+      "kenny@services-01" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home/kenny/servers.nix ];
         extraSpecialArgs = { inherit inputs outputs nixvim pkgs-stable; };
       };
     };
