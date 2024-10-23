@@ -5,7 +5,11 @@
     initialHashedPassword = "$y$j9T$axbCyy8FKMjJ3f0uVJOmL0$Wu0VWrOkx1iloUCaoECvYURCxP8pOhSfq99aj9SzAWC";
     isNormalUser = true;
     description = "Kenny King";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     uid = 1000;
     shell = pkgs.zsh;
     packages = with pkgs; [
