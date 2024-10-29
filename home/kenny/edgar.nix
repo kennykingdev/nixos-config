@@ -14,8 +14,12 @@
   # Allow installation of packages with "unfree" licences
   nixpkgs.config.allowUnfreePredicate = (_: true);
 
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+
   # Packages with no explicit configuration needed (or it's just not in home-manager options)
   home.packages = with pkgs; [
+    awscli2
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -63,9 +67,6 @@
   #
   home.sessionVariables = {
   };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
