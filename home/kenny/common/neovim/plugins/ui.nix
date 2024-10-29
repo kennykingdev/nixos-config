@@ -21,10 +21,12 @@
 
       noice = {
         enable = true;
-        presets = {
-          bottom_search = true;
-          inc_rename = true;
-          lsp_doc_border = true;
+        settings = {
+          presets = {
+            bottom_search = true;
+            inc_rename = true;
+            lsp_doc_border = true;
+          };
         };
       };
 
