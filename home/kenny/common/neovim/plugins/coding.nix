@@ -244,7 +244,7 @@
               stop_after_first = true;
             };
             markdown = [ "deno_fmt" ];
-            nix = ["alejandra"];
+            nix = ["nixfmt"];
             json = ["jq"];
             toml = [ "taplo" ];
             yaml = [ "yamlfmt" ];
@@ -258,7 +258,7 @@
             isort = {command = "${lib.getExe pkgs.isort}";};
             black = {command = "${lib.getExe pkgs.black}";};
             prettierd = {command = "${lib.getExe pkgs.prettierd}";};
-            alejandra = {command = "${lib.getExe pkgs.alejandra}";};
+            nixfmt = {command = "${lib.getExe pkgs.nixfmt-rfc-style}";};
             jq = {command = "${lib.getExe pkgs.jq}";};
             deno_fmt = {command = "${lib.getExe pkgs.deno}";};
             shellcheck = {command = "${lib.getExe pkgs.shellcheck}";};
