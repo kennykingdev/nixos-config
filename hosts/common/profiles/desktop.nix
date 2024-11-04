@@ -7,6 +7,7 @@
     ../services/plasma.nix
     ../services/printing.nix
     ../services/openssh.nix
+    ../services/plex.nix
   ];
 
   # Install firefox.
