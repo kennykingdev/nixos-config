@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-stable, ... }:
 
 {
   users.users.karen = {
@@ -6,11 +6,14 @@
     isNormalUser = true;
     description = "Karen King";
     extraGroups = [ "networkmanager" ];
-    packages = with pkgs; [
+    packages = (with pkgs; [
         thunderbird
       ]
       ++ (with kdePackages; [
         kate
+      ]))
+      ++
+      ( with pkgs-stable.kdePackages; [
         kblocks
         kbounce
         kbreakout

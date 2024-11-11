@@ -45,7 +45,7 @@
         modules = [
           ./hosts/edgar/configuration.nix
         ];
-        specialArgs = { inherit inputs outputs;};
+        specialArgs = { inherit inputs outputs pkgs-stable;};
       };
       services-01 = nixpkgs.lib.nixosSystem {
         inherit system;
